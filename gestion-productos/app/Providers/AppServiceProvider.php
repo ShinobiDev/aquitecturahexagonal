@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        ProductRepositoryInterface::class;
+        EloquentProductoRepository::class;
     }
 
     /**
