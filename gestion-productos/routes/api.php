@@ -25,7 +25,7 @@ Route::prefix('products')->group(function () {
 
 Route::prefix('categories')->group(function () {
     Route::post('/', [CategoryController::class, 'save']);
-    Route::put('/{id}', [CategoryController::class, 'update']);
+    Route::get('/', [CategoryController::class, 'index']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

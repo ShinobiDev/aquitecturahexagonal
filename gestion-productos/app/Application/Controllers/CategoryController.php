@@ -2,7 +2,7 @@
 namespace App\Application\Controllers;
 
 use App\Application\UseCases\Category\AddCategoryUseCase;
-use App\Application\UseCases\Category\UpdateCategoryUseCase;
+use App\Application\UseCases\Category\ListCategoriesUseCase;
 use App\Application\DTOs\CategoryDTO;
 use Illuminate\Http\Request;
 
@@ -11,12 +11,12 @@ use App\Http\Controllers\Controller;
 class CategoryController extends Controller
 {
     private $addCategoryUseCase;
-    private $updateCategoryUseCase;
+    private $ListCategoriesUseCase;
 
-    public function __construct(AddCategoryUseCase $addCategoryUseCase, UpdateCategoryUseCase $updateCategoryUseCase)
+    public function __construct(AddCategoryUseCase $addCategoryUseCase, ListCategoriesUseCase $ListCategoriesUseCase)
     {
         $this->addCategoryUseCase = $addCategoryUseCase;
-        $this->updateCategoryUseCase = $updateCategoryUseCase;
+        $this->ListCategoriesUseCase = $ListCategoriesUseCase;
     }
 
     public function save(Request $request)
@@ -25,9 +25,9 @@ class CategoryController extends Controller
         return response()->json($this->addCategoryUseCase->execute($categoryDTO), 201);
     }
 
-    public function update(Request $request, $id)
+    public function index(Request $request)
     {
-        $categoryDTO = new CategoryDTO($request->nombre);
-        return response()->json($this->updateCategoryUseCase->execute($id, $categoryDTO));
+        $filters = $request->all();
+        return response()->json($this->ListCategoriesUseCase->execute($filters));
     }
 }

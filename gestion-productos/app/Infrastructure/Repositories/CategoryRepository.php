@@ -1,18 +1,23 @@
 <?php
 namespace App\Infrastructure\Repositories;
 
-use App\Domain\Repositories\CategoryRepositoryInterface;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
+
 use App\Domain\Entities\Category;
+use App\Domain\Repositories\CategoryRepositoryInterface;
+
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
     public function save(Category $category)
     {
-        // Save category to database using Eloquent
+        $category->save();
+        return response()->json($category);
     }
 
-    public function update(Category $category)
+    public function findAll($filters)
     {
-        // Update category in database using Eloquent
+        return Product::all();
     }
 }

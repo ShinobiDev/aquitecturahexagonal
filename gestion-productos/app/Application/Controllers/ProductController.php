@@ -4,6 +4,7 @@ namespace App\Application\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 use App\Application\DTOs\ProductDTO;
 use App\Application\UseCases\Product\AddProductUseCase;
@@ -27,7 +28,20 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
-        Log::info('Llegue al controlador');
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'stock' => 'required|integer',
+            'price' => ['required', 'numeric', function ($attribute, $value, $fail) {
+                if (filter_var($value, FILTER_VALIDATE_FLOAT) === false) {
+                    $fail('El campo debe ser un número con decimales separados por coma.');
+                }
+            }],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 400);
+        }
+        
         $productDTO = new ProductDTO(
             $request->name, 
             $request->price, 

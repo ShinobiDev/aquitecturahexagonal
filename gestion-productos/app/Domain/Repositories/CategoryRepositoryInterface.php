@@ -6,5 +6,5 @@ use App\Domain\Entities\Category;
 interface CategoryRepositoryInterface
 {
     public function save(Category $category);
-    public function update(Category $category);
+    public function findAll(Category $category);
 }

@@ -7,6 +7,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Domain\Repositories\ProductRepositoryInterface;
 use App\Infrastructure\Repositories\ProductRepository;
 
+use App\Domain\Repositories\CategoryRepositoryInterface;
+use App\Infrastructure\Repositories\CategoryRepository;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
     }
 
     /**

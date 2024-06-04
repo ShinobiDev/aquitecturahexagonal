@@ -11,16 +11,15 @@ class ProductRepository implements ProductRepositoryInterface
 {
     public function save(Product $product)
     {
-        Log::info('Llegue al Repositorio Infraestructura');
+        //Log::info('Llegue al Repositorio Infraestructura');
         $product->save();
-
         return response()->json($product);
     }
 
     public function update(int $id, Product $productData)
     {
-        Log::info('Llegue al Repositorio Infraestructura Editar Product');
-       try {
+        //Log::info('Llegue al Repositorio Infraestructura Editar Product');
+        try {
             $product = Product::find($id);
         
             if ($product) {
