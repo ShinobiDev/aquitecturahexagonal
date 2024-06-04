@@ -2,11 +2,13 @@
 
 namespace App\Application\Controllers;
 
-use App\Application\UseCases\Product\AddProductUseCase;
-use App\Application\UseCases\Product\UpdateProductUseCase;
-use App\Application\UseCases\Product\ListProductsUseCase;
-use App\Application\DTOs\ProductDTO;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+use App\Application\DTOs\ProductDTO;
+use App\Application\UseCases\Product\AddProductUseCase;
+use App\Application\UseCases\Product\ListProductsUseCase;
+use App\Application\UseCases\Product\UpdateProductUseCase;
 
 use App\Http\Controllers\Controller;
 
@@ -23,15 +25,13 @@ class ProductController extends Controller
         $this->listProductsUseCase = $listProductsUseCase;
     }
 
-    public function store(Request $request)
+    public function save(Request $request)
     {
-        var_dump($request);
-        dd('Llegue aca');
+        Log::info('Llegue al controlador');
         $productDTO = new ProductDTO(
-            $request->nombre, 
-            $request->precio, 
-            $request->stock, 
-            $request->categoria_id
+            $request->name, 
+            $request->price, 
+            $request->stock
         );
         return response()->json($this->addProductUseCase->execute($productDTO), 201);
     }
@@ -39,17 +39,22 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $productDTO = new ProductDTO(
-            $request->nombre, 
-            $request->precio, 
-            $request->stock, 
-            $request->categoria_id
+            $request->id,
+            $request->name, 
+            $request->price, 
+            $request->stock
         );
-        return response()->json($this->updateProductUseCase->execute($id, $productDTO));
+        return response()->json($this->updateProductUseCase->execute($id,$productDTO));
     }
 
     public function index(Request $request)
     {
         $filters = $request->all();
         return response()->json($this->listProductsUseCase->execute($filters));
+    }
+
+    public function findAll()
+    {
+        return DB::table('products')->get();
     }
 }

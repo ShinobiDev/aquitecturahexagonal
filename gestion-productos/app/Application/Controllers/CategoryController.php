@@ -19,7 +19,7 @@ class CategoryController extends Controller
         $this->updateCategoryUseCase = $updateCategoryUseCase;
     }
 
-    public function store(Request $request)
+    public function save(Request $request)
     {
         $categoryDTO = new CategoryDTO($request->nombre);
         return response()->json($this->addCategoryUseCase->execute($categoryDTO), 201);

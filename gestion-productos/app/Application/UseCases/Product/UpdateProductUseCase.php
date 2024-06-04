@@ -17,6 +17,6 @@ class UpdateProductUseCase
     public function execute($id, ProductDTO $productDTO)
     {
         $product = new Product($id, $productDTO->name, $productDTO->price, $productDTO->stock);
-        return $this->productRepository->update($product);
+        return $this->productRepository->update($id,$product);
     }
 }

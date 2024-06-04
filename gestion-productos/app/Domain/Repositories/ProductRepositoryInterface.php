@@ -6,6 +6,6 @@ use App\Domain\Entities\Product;
 interface ProductRepositoryInterface
 {
     public function save(Product $product);
-    public function update(Product $product);
+    public function update(int $id,Product $product);
     public function findAll($filters);
 }
