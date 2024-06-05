@@ -8,11 +8,11 @@ La aplicación <b>gestión de productos</b> esta diseñada en arquitectura hexag
    <b>$</b> git clone https://github.com/ShinobiDev/aquitecturahexagonal.git
    
 2. <b>Instalar Dependencias:</b> Accede al directorio del proyecto y utiliza Composer para instalar las dependencias del proyecto Laravel.<br>
-   <b>$</b> cd gestion-productos
+   <b>$</b> cd gestion-productos<br>
    <b>$</b> composer install
 
 3. <b>Crear Archivo .env:</b> Copia el archivo de configuración de ejemplo .env.example y créalo como .env. Luego genera una clave de aplicación.<br>
-   <b>$</b> cp .env.example .env
+   <b>$</b> cp .env.example .env<br>
    <b>$</b> php artisan key:generate
    
 4. <b>Configurar la Base de Datos:</b> Edita el archivo .env con la información de tu base de datos (nombre, usuario, contraseña, etc.).<br>
