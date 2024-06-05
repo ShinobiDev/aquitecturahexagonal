@@ -4,26 +4,26 @@ La aplicación <b>gestión de productos</b> esta diseñada en arquitectura hexag
 
 ## Instalación
 
-1. <b>Clona este repositorio:</b> Clona el repositorio de GitHub u otro sistema de control de versiones en tu máquina local.
+1. <b>Clona este repositorio:</b> Clona el repositorio de GitHub u otro sistema de control de versiones en tu máquina local.<br>
    $ git clone https://github.com/ShinobiDev/aquitecturahexagonal.git
    
-2. <b>Instalar Dependencias:</b> Accede al directorio del proyecto y utiliza Composer para instalar las dependencias del proyecto Laravel.
+2. <b>Instalar Dependencias:</b> Accede al directorio del proyecto y utiliza Composer para instalar las dependencias del proyecto Laravel.<br>
    $ cd gestion-productos
    $ composer install
 
-3. <b>Crear Archivo .env:</b> Copia el archivo de configuración de ejemplo .env.example y créalo como .env. Luego genera una clave de aplicación.
+3. <b>Crear Archivo .env:</b> Copia el archivo de configuración de ejemplo .env.example y créalo como .env. Luego genera una clave de aplicación.<br>
    $ cp .env.example .env
    $ php artisan key:generate
    
-4. <b>Configurar la Base de Datos:</b> Edita el archivo .env con la información de tu base de datos (nombre, usuario, contraseña, etc.).
+4. <b>Configurar la Base de Datos:</b> Edita el archivo .env con la información de tu base de datos (nombre, usuario, contraseña, etc.).<br>
 
-5. <b>Migrar la Base de Datos:</b> Ejecuta las migraciones para crear las tablas de la base de datos.
+5. <b>Migrar la Base de Datos:</b> Ejecuta las migraciones para crear las tablas de la base de datos.<br>
    $ php artisan migrate --seed
 
-6. <b>Iniciar Servidor de Desarrollo:</b> Ejecuta el servidor de desarrollo de Laravel.
+6. <b>Iniciar Servidor de Desarrollo:</b> Ejecuta el servidor de desarrollo de Laravel.<br>
    $ php artisan serve
 
-7. <b>Acceder al Proyecto:</b> Abre tu navegador web y accede a http://localhost:8000 (o la dirección que indique la terminal) para ver tu proyecto Laravel funcionando.
+7. <b>Acceder al Proyecto:</b> Abre tu navegador web y accede a http://localhost:8000 (o la dirección que indique la terminal) para ver tu proyecto Laravel funcionando.<br>
                                                                                      
 
 ## Postman
