@@ -28,14 +28,14 @@ La aplicación <b>gestión de productos</b> esta diseñada en arquitectura hexag
 
 ## Postman
 
-<b>Crear Producto</b>
-<b>URL</b> http://localhost:8000/api/products
-<b>Metodo</b> POST
+<b>Crear Producto</b><br>
+<b>URL</b> http://localhost:8000/api/products<br>
+<b>Metodo</b> POST<br>
 <b>Body</b>{
                 "name": "Computador",
                 "price": 28.58,
                 "stock": 10
             }
-<b>Lista Producto</b>
-<b>URL</b> http://localhost:8000/api/products
+<b>Lista Producto</b><br>
+<b>URL</b> http://localhost:8000/api/products<br>
 <b>Metodo</b> GET    
