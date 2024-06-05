@@ -35,7 +35,7 @@ La aplicación <b>gestión de productos</b> esta diseñada en arquitectura hexag
                 "name": "Computador",
                 "price": 28.58,
                 "stock": 10
-            }
+            }<br>
 <b>Lista Producto</b><br>
 <b>URL</b> http://localhost:8000/api/products<br>
 <b>Metodo</b> GET    
